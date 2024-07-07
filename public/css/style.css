@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+* {
+	margin:0;
+	padding:0;
+	font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #000000;
+	text-align:center;   /* 下記のautoに未対応用のセンタリング */
+}
+
+/* ********** header style ********** */
+.header {
+	position: fixed; /* ヘッダーを固定する */
+	top: 0; /* 上部から配置の基準位置を決める */
+	left: 0; /* 左から配置の基準位置を決める */
+	width: 100%; /* ヘッダーの横幅を指定する */
+	height: 20vh;
+	background: url(/img/background.jpg) center;
+	background-size:100% auto;
+	text-align: center; /* 子要素を水平センタリング */
+    padding: 20px;      /* 上下にパディングを追加（任意） */
+}
+
+
+
+/* ********** body style ********** */
+
+
+
+
+/* ********** footer style ********** */
+
+
