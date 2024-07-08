@@ -1,5 +1,5 @@
 // Port
-exports.port = 3000;
+exports.port = 8000;
 
 // MySQL
 exports.host = 'localhost';

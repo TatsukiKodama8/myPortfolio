@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-     <%- include('../partials/head'); %> 
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
-<body class="container">
-    <header>
-        <%#- include('../partials/header'); %>
-        <h1>Authentication page</h1>
-    </header>
-    
-    <%# ここにフォームを作る %>
-    <form action="/" method="POST" id="form">
-        
-        <%# メールアドレス %>
-        <input id="mailAddress" type="email" name="mailAddress" 
-                placeholder="Enter mail address"/><br>
-
-        <%# パスワード %>
-        <input id="password" type="password" name="password" 
-                placeholder="Enter password"><br>
-
-        <input type="submit" value="Submit" />
-        <div id="errorMessage" style="color: red;"></div>
-    </form>
-
-    <script src="/js/script.js"></script>
+<body>
+    <div class="auth_galaxy">
+        <header>
+            <%#- include('../partials/header'); %>
+                <h1>Authentication page</h1>
+        </header>
 
 
-    <footer>
-        <%#- include('../partials/footer'); %>
-    </footer>
+        <%# ここにフォームを作る %>
+            <div class="background-container">
+                <div class="form-containeer">
+                    <form action="/" method="POST" id="form">
+                        <%# メールアドレス %>
+                        <input id="mailAddress" type="email" name="mailAddress"
+                        placeholder="Enter mail address" /><br>
+                        <%# パスワード %>
+                        <input id="password" type="password" name="password" placeholder="Enter password"><br>
+                        <%# 提出 %>
+                        <input type="submit" value="Submit" />
+                        <%# エラーメッセージ %>
+                        <div id="errorMessage" style="color: red;"></div>
+                    </form>
+                </div>
+            </div>
+            <script src="/js/script.js"></script>
+
+
+
+            <footer>
+                <%#- include('../partials/footer'); %>
+            </footer>
 </body>
 
 </html>
-

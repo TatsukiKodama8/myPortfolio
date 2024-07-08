@@ -7,7 +7,7 @@ const mysql = require('mysql');
 var app = express();
 
 /* ========== CONSTANTS ========== */
-const PORT = 3000;
+const PORT = config.port;
 const TABLE_NAME = 'users';
 
 
