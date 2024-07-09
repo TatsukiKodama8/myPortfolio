@@ -1,6 +1,10 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+/********************************************************************/
+/*                          Login Form                              */
+/********************************************************************/
 body,
 html {
     height: 100%;
@@ -93,3 +97,100 @@ input[type=password]:focus {
 .btn:hover {
     opacity: 1;         /* カーソルがボタン上にある場合には透明度を０にして、通常状態と区別する */
 }
+
+/********************************************************************/
+/*                          Side Bar                                */
+/********************************************************************/
+/* Style the sidebar - fixed full height */
+.sidebar {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1; /* ? */
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+
+/* Style sidebar links */
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+
+/********************************************************************/
+/*                             header                               */
+/********************************************************************/
+
+
+.header-title {
+    background-image: url(../img/background.jpg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************/
+/*                             body                                 */
+/********************************************************************/
+
+
+
+body.portfolio {
+    font-family: 'Itim', cursive;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

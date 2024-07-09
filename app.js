@@ -10,6 +10,7 @@ var app     = express();
 const PORT          = config.port;
 const TABLE_NAME    = 'users';
 
+
 /* ========== SETTINGS ========== */
 // 静的ファイルを提供するためのミドルウェアを設定
 app.use(express.static(path.join(__dirname, 'views')));
@@ -69,6 +70,14 @@ app.get('/index', (req, res) => {
     res.render('pages/index'); // ここで index.ejs をレンダリングする
 });
 
+app.get('/garally', (req, res) => {
+    res.render('pages/garally'); // ここで index.ejs をレンダリングする
+});
+
+app.get('/portfolio', (req, res) => {
+    res.render('pages/portfolio'); // ここで index.ejs をレンダリングする
+});
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -93,7 +102,7 @@ const isAuthorized = (mailAddress) => {
 app.post('/', async (req, res) => {
     // フォームからrequestされたメアドとパスワードを格納する
     let mailAddress = req.body.mailAddress;
-    let password = req.body.password;
+    let password    = req.body.password;
 
     // email passwordといったユーザ情報をMySQLから取り出す
     let overlapCheckQuery = `SELECT * FROM ${TABLE_NAME} WHERE email = ?`;
