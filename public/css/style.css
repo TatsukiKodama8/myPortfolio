@@ -1,77 +1,95 @@
-@charset "utf-8";
+/* @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+body,
+html {
+    height: 100%;
+}
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #444444;
+    margin: 0;
 }
 
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.bg-img {
+    /* The image used */
+    background-image: url("../img/background.jpg");
+
+    /* Control the height of the image */
+    min-height: 380px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
 }
 
-header h1{
-	background: url(../img/background.jpg) center / cover;
-	color: #ffffff;
-
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-section h1 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-}
-
-section p, section ul {
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul li {
-    background: #e9e9e9;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+/* Add styles to the form container */
+.container {
+    position: absolute;
+    margin: 20px;
+    max-width: 400px;
+    padding: 16px;
+    background-color: rgb(255, 255, 255, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Itim', cursive;
 }
 
 /*
-ul li:last-child {
-    background: #d4edda;
-    color: #155724;
+.container h1 {
+    font-family: 'Itim', cursive;
+    font: optional;
 }
-*/
+    */
 
-article h3 {
+.container h1::before {
+    content: ''; /* 何も入れない */
+    text-align: center;
+    display: inline-block;
+    width: 50px;    /* 画像の幅 */
+    height: 50px;   /* 画像の高さ */
+    background-image: url(../img/myFavicon.jpg);
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 10px;
     margin-bottom: 10px;
-    font-size: 1.4em;
-    color: #333;
 }
 
-article p {
-    margin-bottom: 10px;
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    border-radius: 5px;
+    background: #f1f1f1;
 }
 
-article a {
-    color: #007bff;
-    text-decoration: none;
+/* :focusはフォームを選択中にそれを強調表示 */
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
 }
 
-article a:hover {
-    text-decoration: underline;
+/* Set a style for the submit button */
+.btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;       /* なにもカーソルがボタンの上にないときは少しだけ透明にする */
+    border-radius: 5px;
+}
+
+.btn:hover {
+    opacity: 1;         /* カーソルがボタン上にある場合には透明度を０にして、通常状態と区別する */
 }

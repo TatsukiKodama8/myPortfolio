@@ -1,15 +1,14 @@
 /* ========== EXTERNAL FILES ========== */
-let config = require('./config');
+let config  = require('./config');
 var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+var path    = require('path');
+var bodyParser  = require('body-parser');
 const mysql = require('mysql');
-var app = express();
+var app     = express();
 
 /* ========== CONSTANTS ========== */
-const PORT = config.port;
-const TABLE_NAME = 'users';
-
+const PORT          = config.port;
+const TABLE_NAME    = 'users';
 
 /* ========== SETTINGS ========== */
 // 静的ファイルを提供するためのミドルウェアを設定
@@ -18,9 +17,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());  // これを追加してJSON形式のデータも扱えるようにする
-
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
 
 // view engineをejsにセットする
 app.set('view engine', 'ejs');
@@ -43,7 +39,6 @@ db.connect((err) => {
     console.log('Connected to MySQL!');
 })
 
-
 /* ========== FUNCTIONS ========== */
 
 // emailとpasswordをDBへ格納する関数
@@ -64,10 +59,6 @@ function insertUser(mailAddress, password, callback) {
 }
 */
 
-
-
-
-
 /* =========== INDEX =========== */
 app.get('/', function (req, res) {
     res.render('pages/index');
@@ -77,6 +68,9 @@ app.get('/', function (req, res) {
 app.get('/index', (req, res) => {
     res.render('pages/index'); // ここで index.ejs をレンダリングする
 });
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 /* =========== CONTACT =========== */
@@ -97,35 +91,28 @@ const isAuthorized = (mailAddress) => {
 
 // contactページでポストされた情報が来て欲しい
 app.post('/', async (req, res) => {
-
     // フォームからrequestされたメアドとパスワードを格納する
     let mailAddress = req.body.mailAddress;
     let password = req.body.password;
 
     // email passwordといったユーザ情報をMySQLから取り出す
     let overlapCheckQuery = `SELECT * FROM ${TABLE_NAME} WHERE email = ?`;
-    db.query(overlapCheckQuery, [mailAddress, password], (err, result) => {
+    db.query(overlapCheckQuery, [mailAddress], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
-        // 取り出したユーザ情報
-        let emaiInDb = result[0].email;
-        let passwordInDb = result[0].password;
-        
-        console.log(mailAddress);
-        console.log(emaiInDb);
-        console.log(password);
-        console.log(passwordInDb);
 
-        // アドレスが一致していない => Unauthorized
-        // アドレス一致
-        //      -> パスワ一致してない => passwordが違いますと表示させて、同じページをresponse
-        //      -> パスワードが一致 => index pageへ
-        if ( emaiInDb !== mailAddress ) {
-            return res.send("<h1>401 Unauthorized</h1>");
-        } 
+        // userがdbに登録されていない場合
+        if (result.length == 0)
+            return res.status(401).send("<h1>401 Unauthorized</h1>");
+        console.log(result);
+
+        // userがdbに登録されている場合
+        let passwordInDb = result[0].password;
         if ( passwordInDb !== password) {
-            return res.send("<h1>Password is wrong.</h1>");
+            res.send
+            res.send("<h1>Password is wrong.</h1>");
+            return;
         } else {
             console.log("Authorized");
             res.render('pages/portfolio');    // TODO: Index pageに送ることができない！

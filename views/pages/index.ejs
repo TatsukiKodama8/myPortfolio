@@ -3,40 +3,29 @@
 
 <head>
     <%- include('../partials/head'); %>
-        <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="../img/myFavicon.jpg">
 </head>
 
 <body>
-    <div class="auth_galaxy">
-        <header>
-            <%#- include('../partials/header'); %>
-                <h1>Authentication page</h1>
-        </header>
+    <div class="bg-img">
+        <form action="/" method="POST" id="form" class="container">
 
+            <h1>Authentification</h1>
+            <label for="email"><b>Email</b></label>
+            <!-- <input id="mailAddress" type="email" name="mailAddress" placeholder="Enter mail address" /><br> -->
+            <input id="mailAddress" type="text" placeholder="Enter Email" name="mailAddress" required>
+            <label for="password"><b>Password</b></label>
+            <input id="password" type="password" name="password" placeholder="Enter password"><br>
 
-        <%# ここにフォームを作る %>
-            <div class="background-container">
-                <div class="form-containeer">
-                    <form action="/" method="POST" id="form">
-                        <%# メールアドレス %>
-                        <input id="mailAddress" type="email" name="mailAddress"
-                        placeholder="Enter mail address" /><br>
-                        <%# パスワード %>
-                        <input id="password" type="password" name="password" placeholder="Enter password"><br>
-                        <%# 提出 %>
-                        <input type="submit" value="Submit" />
-                        <%# エラーメッセージ %>
-                        <div id="errorMessage" style="color: red;"></div>
-                    </form>
-                </div>
-            </div>
-            <script src="/js/script.js"></script>
+            <!-- <input type="submit" value="Submit" />-->
+            <button type="submit" class="btn">Login</button>
 
+            <div id="errorMessage" style="color: orange; "></div>
+        </form>
 
-
-            <footer>
-                <%#- include('../partials/footer'); %>
-            </footer>
+        <script src="/js/script.js"></script>
+    </div>
 </body>
 
 </html>
