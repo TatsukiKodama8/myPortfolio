@@ -4,81 +4,124 @@
 <head>
     <%- include('../partials/head'); %>
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="icon" type="image/x-icon" href="../img/myFavicon.jpg">
 </head>
 
 <body class="portfolio">
 
-    <header>
+    <header">
         <%- include('../partials/header'); %>
-    </header>
-    <main>
-        <section>
-            <h1>History</h1>
-            <ul>
-                <li>Graduated from Saga University, Japan, Ph. D., 2024</li>
-                <li>IoT Group, Retail System Division, Retail AI Inc., 2024</li>
-            </ul>
-        </section>
+            </header>
+            <main>
 
-        <section>
-            <h1>Skills</h1>
-            <ul>
-                <li>Mathematica</li>
-                <li>TeX</li>
-                <li>C Language</li>
-                <li>Python</li>
-                <li>JavaScript <- new!</li>
-            </ul>
-        </section>
+                <nav>
+                    <ul>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#publishedPaper">Published Papers</a></li>
+                    </ul>
+                </nav>
 
-        <section>
-            <h1>Published Papers</h1>
-            <h3>Generalized early dark energy and its cosmological consequence</h2>
-            <p><a href="https://arxiv.org/abs/2309.11272" target="_blank">https://arxiv.org/abs/2309.11272</a></p>
-            <p>We investigate cosmological consequences of a generalized early dark energy (EDE) model
-                where a scalar field behaves as dark energy at various cosmological epochs for a broad
-                range of parameters such as the energy scale and the initial field value. We consider
-                power-law and axion-type potentials for such an EDE field and study how it affects the
-                cosmological evolution. We show that gravitational wave background can be significantly
-                enhanced to be detected in future observations such as LISA and DECIGO in some parameter space.
-                Implications of the EDE model are also discussed for a scenario where a blue-tilted inflationary
-                tensor power spectrum can explain the recent NANOGrav 15-year signal. We argue that the bounds
-                on the reheating temperature can be relaxed compared to the case of the standard thermal history.
-            </p>
+                <div class="portfolio-container">
+                    <section id="history">
+                        <h1>History</h1>
+                        <ul>
+                            <li>Jan. 1997: I was born in Fukuoka prefecture, Japan.</li>
+                            <li>Mar. 2024: Graduated from Saga University, Japan, and obtained Ph. D.</li>
+                            <li>Apr. 2024: Join IoT Group, Retail System Division, Retail AI Inc.</li>
+                        </ul>
+                    </section>
+
+                    <section id="skills">
+                        <h1>Skills</h1>
+                        <ul>
+                            <li>Mathematica</li>
+                            <li>TeX</li>
+                            <li>C Language</li>
+                            <li>Python</li>
+                            <li>JavaScript <- new!
+                                <ul>
+                                    <li>Node.js</li>
+                                    <li>ejs</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h1>Major</h1>
+                        <ul>
+                            <li>Cosmology in the early universe</li>
+                        </ul>
+                    </section>
+
+                    <section id="publishedPaper">
+                        <h1>Published Papers</h1>
+                        <h3>Generalized early dark energy and its cosmological consequence</h2>
+                            <p><a href="https://arxiv.org/abs/2309.11272"
+                                    target="_blank">https://arxiv.org/abs/2309.11272</a></p>
+                            <p>We investigate cosmological consequences of a generalized early dark energy (EDE) model
+                                where a scalar field behaves as dark energy at various cosmological epochs for a broad
+                                range of parameters such as the energy scale and the initial field value. We consider
+                                power-law and axion-type potentials for such an EDE field and study how it affects the
+                                cosmological evolution. We show that gravitational wave background can be significantly
+                                enhanced to be detected in future observations such as LISA and DECIGO in some parameter
+                                space.
+                                Implications of the EDE model are also discussed for a scenario where a blue-tilted
+                                inflationary
+                                tensor power spectrum can explain the recent NANOGrav 15-year signal. We argue that the
+                                bounds
+                                on the reheating temperature can be relaxed compared to the case of the standard thermal
+                                history.
+                            </p>
 
 
-            <h3>Assisted nonminimal inflation: A general analysis</h2>
-            <p><a href="https://arxiv.org/abs/2302.05866" target="_blank">https://arxiv.org/abs/2302.05866</a></p>
-            <p>The effects of a scalar field, known as the "assistant field," which nonminimally couples to gravity,
-                on single-field inflationary models are studied. The analysis provides analytical expressions
-                for inflationary observables such as the spectral index (ns), the tensor-to-scalar ratio (r),
-                and the local-type nonlinearity parameter (f(local)NL). The presence of the assistant field
-                leads to a lowering of ns and r in most of the parameter space, compared to the original
-                predictions.
-                In some cases, ns may increase due to the assistant field. This revives compatibility between
-                ruled-out single-field models and the latest observations by Planck-BICEP/Keck. The results are
-                demonstrated using three example models: loop inflation, power-law inflation, and hybrid inflation.
-            </p>
+                            <h3>Assisted nonminimal inflation: A general analysis</h2>
+                                <p><a href="https://arxiv.org/abs/2302.05866"
+                                        target="_blank">https://arxiv.org/abs/2302.05866</a></p>
+                                <p>The effects of a scalar field, known as the "assistant field," which nonminimally
+                                    couples to gravity,
+                                    on single-field inflationary models are studied. The analysis provides analytical
+                                    expressions
+                                    for inflationary observables such as the spectral index (ns), the tensor-to-scalar
+                                    ratio (r),
+                                    and the local-type nonlinearity parameter (f(local)NL). The presence of the
+                                    assistant field
+                                    leads to a lowering of ns and r in most of the parameter space, compared to the
+                                    original
+                                    predictions.
+                                    In some cases, ns may increase due to the assistant field. This revives
+                                    compatibility between
+                                    ruled-out single-field models and the latest observations by Planck-BICEP/Keck. The
+                                    results are
+                                    demonstrated using three example models: loop inflation, power-law inflation, and
+                                    hybrid inflation.
+                                </p>
 
-            <h3>Relaxing inflation models with nonminimal coupling: A general stydy</h2>
-            <p><a href="https://arxiv.org/abs/2112.05283" target="_blank">https://arxiv.org/abs/2112.05283</a></p>
-            <p>We investigate the predictions of inflation models with a non-minimal coupling to
-                gravity for inflationary observables such as the spectral index and tensor-to-scalar
-                ratio in a general setting. We argue that, depending on the relation between
-                the Jordan frame potential and a function characterizing the non-minimal coupling,
-                one can classify the model into three categories each of which gives distinctive
-                predictions for the inflationary observables. We derive general predictions for
-                each class and also investigate some explicit models to discuss how the general
-                features arise. Our results would be useful to design an inflation model consistent
-                with observational constraints with a non-minimal coupling to gravity.</p>
-        </section>
+                                <h3>Relaxing inflation models with nonminimal coupling: A general stydy</h2>
+                                    <p><a href="https://arxiv.org/abs/2112.05283"
+                                            target="_blank">https://arxiv.org/abs/2112.05283</a></p>
+                                    <p>We investigate the predictions of inflation models with a non-minimal coupling to
+                                        gravity for inflationary observables such as the spectral index and
+                                        tensor-to-scalar
+                                        ratio in a general setting. We argue that, depending on the relation between
+                                        the Jordan frame potential and a function characterizing the non-minimal
+                                        coupling,
+                                        one can classify the model into three categories each of which gives distinctive
+                                        predictions for the inflationary observables. We derive general predictions for
+                                        each class and also investigate some explicit models to discuss how the general
+                                        features arise. Our results would be useful to design an inflation model
+                                        consistent
+                                        with observational constraints with a non-minimal coupling to gravity.</p>
+                    </section>
+                </div>
 
 
-    </main>
+            </main>
 
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
+            <footer>
+                <%- include('../partials/footer'); %>
+            </footer>
 
 
 

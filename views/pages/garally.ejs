@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head'); %>
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="icon" type="image/x-icon" href="../img/myFavicon.jpg">
 </head>
 
 <body>
@@ -11,75 +12,85 @@
     <header>
         <%- include('../partials/header'); %>
     </header>
-    <main>
-        <section>
-            <h1>History</h1>
-            <ul>
-                <li>Graduated from Saga University, Japan, Ph. D., 2024</li>
-                <li>IoT Group, Retail System Division, Retail AI Inc., 2024</li>
-            </ul>
-        </section>
-
-        <section>
-            <h1>Skills</h1>
-            <ul>
-                <li>Mathematica</li>
-                <li>TeX</li>
-                <li>C Language</li>
-                <li>Python</li>
-                <li>JavaScript <- new!</li>
-            </ul>
-        </section>
-
-        <section>
-            <h1>Published Papers</h1>
-            <h3>Generalized early dark energy and its cosmological consequence</h2>
-            <p><a href="https://arxiv.org/abs/2309.11272" target="_blank">https://arxiv.org/abs/2309.11272</a></p>
-            <p>We investigate cosmological consequences of a generalized early dark energy (EDE) model
-                where a scalar field behaves as dark energy at various cosmological epochs for a broad
-                range of parameters such as the energy scale and the initial field value. We consider
-                power-law and axion-type potentials for such an EDE field and study how it affects the
-                cosmological evolution. We show that gravitational wave background can be significantly
-                enhanced to be detected in future observations such as LISA and DECIGO in some parameter space.
-                Implications of the EDE model are also discussed for a scenario where a blue-tilted inflationary
-                tensor power spectrum can explain the recent NANOGrav 15-year signal. We argue that the bounds
-                on the reheating temperature can be relaxed compared to the case of the standard thermal history.
-            </p>
-
-
-            <h3>Assisted nonminimal inflation: A general analysis</h2>
-            <p><a href="https://arxiv.org/abs/2302.05866" target="_blank">https://arxiv.org/abs/2302.05866</a></p>
-            <p>The effects of a scalar field, known as the "assistant field," which nonminimally couples to gravity,
-                on single-field inflationary models are studied. The analysis provides analytical expressions
-                for inflationary observables such as the spectral index (ns), the tensor-to-scalar ratio (r),
-                and the local-type nonlinearity parameter (f(local)NL). The presence of the assistant field
-                leads to a lowering of ns and r in most of the parameter space, compared to the original
-                predictions.
-                In some cases, ns may increase due to the assistant field. This revives compatibility between
-                ruled-out single-field models and the latest observations by Planck-BICEP/Keck. The results are
-                demonstrated using three example models: loop inflation, power-law inflation, and hybrid inflation.
-            </p>
-
-            <h3>Relaxing inflation models with nonminimal coupling: A general stydy</h2>
-            <p><a href="https://arxiv.org/abs/2112.05283" target="_blank">https://arxiv.org/abs/2112.05283</a></p>
-            <p>We investigate the predictions of inflation models with a non-minimal coupling to
-                gravity for inflationary observables such as the spectral index and tensor-to-scalar
-                ratio in a general setting. We argue that, depending on the relation between
-                the Jordan frame potential and a function characterizing the non-minimal coupling,
-                one can classify the model into three categories each of which gives distinctive
-                predictions for the inflationary observables. We derive general predictions for
-                each class and also investigate some explicit models to discuss how the general
-                features arise. Our results would be useful to design an inflation model consistent
-                with observational constraints with a non-minimal coupling to gravity.</p>
-        </section>
-
-
+    <main class="garally">
+        <h1>GALLARY</h1>
     </main>
 
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
+    <%# 画像の空の要素。この部分は動的に拡張される必要がある %>
+        <div class="garally-container">
+            <div class="radio">
+                <input type="radio" id="radio10sec" name="secRadio" value="10" onchange="slideShow()" checked />
+                <!-- checked => 初期値-->
+                <label for="radio10sec">10 sec</label>
 
+                <input type="radio" id="radio20sec" name="secRadio" value="20" onchange="slideShow()" />
+                <label for="radio20sec">20 sec</label>
+
+                <input type="radio" id="radio30sec" name="secRadio" value="30" onchange="slideShow()" />
+                <label for="radio30sec">30 sec</label>
+            </div>
+
+            <img src="" class="pics" id="pics">
+        </div>
+
+        <footer>
+            <%- include('../partials/footer'); %>
+        </footer>
+
+        <script>
+            const imgArray = [
+                'img/img_forest.jpg',
+                'img/img_mountains.jpg',
+                'img/img_snow.jpg',
+                'img/lights.jpg',
+            ];
+
+            let counter = 0;    // initialize
+            let sec = 1000;
+            let interval = 10 * sec;
+            let intervalId; // To store the interval ID
+
+            const change2NextImg = () => {
+                let aryNum = imgArray.length;
+                counter = (counter < (aryNum - 1)) ? ++counter : 0; // counter++ だと動かない
+                document.getElementById("pics").src = imgArray[counter];
+            };
+
+            const startSlideShow = () => {
+                let img = document.getElementById('pics');
+                img.src = imgArray[counter];
+                intervalId = setInterval(change2NextImg, interval);
+            };
+
+            // ラジオボタンがチェックしているvalueを返す
+            // TODO: for文使わなくてもできるでしょ、これ
+            const obtainRadioElement = (name) => {
+                let elems = document.getElementsByName(name);
+                for (let i = 0; i < elems.length; i++) {
+                    if (elems[i].checked) {
+                        console.log("obtainRadioElement", elems[i].value);
+                        return elems[i].value;
+                    }
+                }
+            }
+
+            const slideShow = () => {
+                console.log("changed!");
+                let intervalTime = parseFloat(obtainRadioElement('secRadio')) * sec; // Multiply by 1000 to get milliseconds
+                console.log(typeof intervalTime);
+                console.log(intervalTime, "msec");
+
+                // インターバルをリセット
+                clearInterval(intervalId);
+
+                // 新しくインターバルを割り当てる
+                intervalId = setInterval(change2NextImg, intervalTime);
+            }
+
+            window.onload = () => {
+                startSlideShow();
+            };
+        </script>
 
 
 </body>

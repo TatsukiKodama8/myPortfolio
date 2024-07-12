@@ -1,119 +1,28 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-
-/********************************************************************/
-/*                          Login Form                              */
-/********************************************************************/
-body,
-html {
-    height: 100%;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-.bg-img {
-    /* The image used */
-    background-image: url("../img/background.jpg");
-
-    /* Control the height of the image */
-    min-height: 380px;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 100%;
-}
-
-/* Add styles to the form container */
-.container {
-    position: absolute;
-    margin: 20px;
-    max-width: 400px;
-    padding: 16px;
-    background-color: rgb(255, 255, 255, 0.4);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Itim', cursive;
-}
-
-/*
-.container h1 {
-    font-family: 'Itim', cursive;
-    font: optional;
-}
-    */
-
-.container h1::before {
-    content: ''; /* 何も入れない */
-    text-align: center;
-    display: inline-block;
-    width: 50px;    /* 画像の幅 */
-    height: 50px;   /* 画像の高さ */
-    background-image: url(../img/myFavicon.jpg);
-    background-size: contain;
-    vertical-align: middle;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-
-/* Full-width input fields */
-input[type=text],
-input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    border-radius: 5px;
-    background: #f1f1f1;
-}
-
-/* :focusはフォームを選択中にそれを強調表示 */
-input[type=text]:focus,
-input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-/* Set a style for the submit button */
-.btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;       /* なにもカーソルがボタンの上にないときは少しだけ透明にする */
-    border-radius: 5px;
-}
-
-.btn:hover {
-    opacity: 1;         /* カーソルがボタン上にある場合には透明度を０にして、通常状態と区別する */
-}
 
 /********************************************************************/
 /*                          Side Bar                                */
 /********************************************************************/
-/* Style the sidebar - fixed full height */
+
+/* bodyとhtmlの余白を0にする。initialize */
+body,
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
 .sidebar {
     height: 100%;
-    width: 160px;
+    width: 15%;
     position: fixed;
-    z-index: 1; /* ? */
     top: 0;
     left: 0;
     background-color: #111;
     overflow-x: hidden;
     padding-top: 16px;
 }
-
 
 /* Style sidebar links */
 .sidebar a {
@@ -122,75 +31,116 @@ input[type=password]:focus {
     font-size: 20px;
     color: #818181;
     display: block;
-  }
-  
-  /* Style links on mouse-over */
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-
-/********************************************************************/
-/*                             header                               */
-/********************************************************************/
-
-
-.header-title {
-    background-image: url(../img/background.jpg);
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* Style links on mouse-over */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
 
 /********************************************************************/
 /*                             body                                 */
 /********************************************************************/
 
-
-
-body.portfolio {
+body {
     font-family: 'Itim', cursive;
-    margin-left: 200px;
-    margin-right: 200px;
+    width: 100%;
+    margin-left: 15%;
+    overflow-x: hidden;
+}
+
+/* General section styling */
+section {
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+section>h1,
+p {
+    margin-bottom: 10px;
+}
+
+.portfolio-container {
+    margin: 25px;
+    width: 70%;
+}
+
+/********************************************************************/
+/*                             header                               */
+/********************************************************************/
+.header-background {
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 380px;
+    /* Fixed height to ensure background image covers the header */
+}
+
+h1.header-title {
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke: 0.5px black;
+    text-align: left;
+    padding-left: 10px;
+    margin: 0;
+    /* Remove default margin */
+    padding-top: 16px;
+    /* Adjust padding if needed */
+}
+
+p.header-contents {
+    color: white;
+}
+
+.gaussian {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 0;
+    color: white;
 }
 
 
 
+/********************************************************************/
+/*                             footer                               */
+/********************************************************************/
+.sns-box {
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 20px;
+}
 
+.btn-sns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    box-sizing: border-box;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
+.btn-sns svg {
+    fill: #fff;
+}
 
+.btn-x {
+    background-color: #111319;
+}
 
+.btn-sns:hover {
+    opacity: 0.8;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+footer>p {
+    padding-left: 20px;
+}
