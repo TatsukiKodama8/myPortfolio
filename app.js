@@ -71,11 +71,11 @@ app.get('/index', (req, res) => {
 });
 
 app.get('/garally', (req, res) => {
-    res.render('pages/garally'); // ここで index.ejs をレンダリングする
+    res.render('pages/garally'); // ここで garally.ejs をレンダリングする
 });
 
 app.get('/portfolio', (req, res) => {
-    res.render('pages/portfolio'); // ここで index.ejs をレンダリングする
+    res.render('pages/portfolio'); // ここで portfolio.ejs をレンダリングする
 });
 
 // Serve static files from the 'public' directory
